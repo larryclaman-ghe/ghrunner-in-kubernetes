@@ -1,4 +1,5 @@
-FROM debian:jessie
+#FROM debian:jessie
+FROM ubuntu:20.10
 ARG RUNNER_VERSION="2.281.1"
 
 ENV GITHUB_PERSONAL_TOKEN ""
@@ -21,6 +22,8 @@ RUN apt-get update \
 RUN useradd -m github && \
     usermod -aG sudo github && \
     echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+RUN apt-get -y install buildah
 
 USER github
 WORKDIR /home/github
