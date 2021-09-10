@@ -23,6 +23,7 @@ RUN useradd -m github && \
     usermod -aG sudo github && \
     echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
+RUN apt-get update
 RUN apt-get -y install buildah
 
 USER github
